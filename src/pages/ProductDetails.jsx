@@ -4,6 +4,7 @@ import { useEffect, useState } from "preact/hooks";
 import { getOneItem } from "../services/productsService";
 import DetailImage from "../components/DetailImage";
 import ProductActions from "../components/ProductActions";
+import DetailDescription from "../components/DetailDescription";
 
 const ProductDetails = () => {
   const itemId = useParams().id;
@@ -24,21 +25,15 @@ const ProductDetails = () => {
       {item && (
         <>
           <h3
-            className="hover:cursor-pointer text-blue-500"
+            className="hover:cursor-pointer text-blue-500 text-xl hover:text-blue-700 w-full my-4"
             onClick={handleGoBackClick}
           >
-            volver
+            {"volver".toUpperCase()}
           </h3>
           <section className="flex w-full justify-center gap-4">
             <DetailImage image={item.imgUrl} />
             <div className="flex flex-col">
-              <div className="flex flex-col justify-center h-[10rem]">
-                <ul className="flex flex-col hover:cursor-default text-blue-500">
-                  <span className="text-lg font-bold">{item.brand}</span>
-                  <span>{item.model}</span>
-                  <span>{item.price} €</span>
-                </ul>
-              </div>
+              <DetailDescription item={item} />
               <div className="flex flex-col justify-center h-[10rem]">
                 <ProductActions
                   productId={item.id}

@@ -21,7 +21,7 @@ const ProductActions = ({
       colorCode,
       storageCode,
     });
-
+    window.alert("Teléfono añadido a la cesta");
     return response;
   };
 
@@ -58,7 +58,7 @@ const ProductActions = ({
       </label>
 
       <button
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-white hover:text-blue-500 hover:border-2 hover:cursor-pointer hover:py-[6px] max-w-[10rem]"
         onClick={handleAddClick}
       >
         Añadir al carrito

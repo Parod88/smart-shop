@@ -1,6 +1,6 @@
 const CACHE_DURATION = 1000 * 60 * 60;
 
-const updateLocalStorageProperty = (key, property, newValue) => {
+export const updateLocalStorageProperty = (key, property, newValue) => {
   const storedData = JSON.parse(localStorage.getItem(key));
 
   storedData[property] = newValue;
@@ -22,18 +22,18 @@ export const getCachedData = (key) => {
   }
 };
 
-export const setCachedData = (key, data) => {
+export const setCachedData = (key, data, item) => {
   const existing = localStorage.getItem(key);
 
   if (existing) {
     updateLocalStorageProperty(key, "data", data);
     updateLocalStorageProperty(key, "timestamp", Date.now());
-    updateLocalStorageProperty(key, "detailedDevice", null);
+    updateLocalStorageProperty(key, "detailedDevice", item);
   } else {
     const payload = {
       data,
       timestamp: Date.now(),
-      detailedDevice: {},
+      detailedDevice: item,
     };
     localStorage.setItem(key, JSON.stringify(payload));
   }
