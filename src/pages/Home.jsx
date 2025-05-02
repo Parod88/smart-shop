@@ -1,23 +1,37 @@
 import ProductItem from "../components/ProductItem";
 import { useEffect, useState } from "preact/hooks";
 import axios from "axios";
+import { fetchProducts } from "../services/productsService";
+import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://itx-frontend-test.onrender.com/api/product")
-      .then((response) => setProducts(response.data))
-      .catch((err) => console.error(err));
+    const loadData = async () => {
+      const data = await fetchProducts();
+      setProducts(data);
+    };
+
+    loadData();
   }, []);
 
+  const handleClick = (productId) => navigate(`/product/${productId}`);
+
   return (
-    <div className="p-4 grid grid-cols-5 md:grid-cols-3 gap-4">
-      {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
-      ))}
-    </div>
+    <Layout>
+      <div className="p-4 grid grid-cols-3  min-sm:grid-cols-4 gap-8 ">
+        {products.map((product) => (
+          <ProductItem
+            key={product.id}
+            product={product}
+            onClick={() => handleClick(product.id)}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 };
 
