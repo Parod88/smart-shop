@@ -1,7 +1,7 @@
 import ProductItem from "../components/ProductItem";
 import { useEffect, useState } from "preact/hooks";
 import axios from "axios";
-import { fetchProducts } from "../services/productsService";
+import { getAllItems } from "../services/productsService";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchProducts();
+      const data = await getAllItems();
       setProducts(data);
     };
 

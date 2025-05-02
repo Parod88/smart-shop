@@ -6,7 +6,6 @@ const Breadcrumbs = () => {
       <Link to="/" className="text-white hover:text-gray-300">
         Home
       </Link>
-      {/* Aquí podrías agregar más links según la ruta */}
     </nav>
   );
 };
