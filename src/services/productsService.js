@@ -41,7 +41,7 @@ export const addToCart = async ({ id, colorCode, storageCode }) => {
       storageCode,
     });
 
-    return response.data;
+    return response;
   } catch (err) {
     console.error("Error añadiendo al carrito: ", err);
     return;

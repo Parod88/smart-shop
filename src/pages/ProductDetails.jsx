@@ -37,11 +37,8 @@ const ProductDetails = () => {
               <div className="flex flex-col justify-center h-[10rem]">
                 <ProductActions
                   productId={item.id}
-                  colorCode={1}
-                  colorNames={["rojo", "dorado", "blanco", "negro"]}
-                  storageCode={1}
-                  storageName={["128", "256", "512", "1024"]}
-                  onCartUpdate={(count) => {}}
+                  colorOptions={item.options.colors}
+                  storageOptions={item.options.storages}
                 />
               </div>
             </div>
