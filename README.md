@@ -58,6 +58,7 @@ Este proyecto utiliza almacenamiento en localStorage para gestionar el carrito y
 El filtrado y las rutas están optimizadas para una SPA rápida y responsive.
 
 🧪 Futuras mejoras
+Implementar custom Hook para gestionar las llamadas (loading, success y fail)
 Añadir tests unitarios de los componentes.
 Implementar paginación o lazy loading.
 
