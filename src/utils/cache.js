@@ -1,4 +1,12 @@
-const CACHE_DURATION = 1000 * 60 * 60; // 1 hora en milisegundos
+const CACHE_DURATION = 1000 * 60 * 60;
+
+export const updateLocalStorageProperty = (key, property, newValue) => {
+  const storedData = JSON.parse(localStorage.getItem(key));
+
+  storedData[property] = newValue;
+
+  localStorage.setItem(key, JSON.stringify(storedData));
+};
 
 export const getCachedData = (key) => {
   const cached = localStorage.getItem(key);
@@ -7,17 +15,26 @@ export const getCachedData = (key) => {
   try {
     const parsed = JSON.parse(cached);
     const isExpired = Date.now() - parsed.timestamp > CACHE_DURATION;
-    return isExpired ? null : parsed.data;
+    return isExpired ? null : parsed;
   } catch (err) {
     console.error("Error parsing cached data", err);
     return null;
   }
 };
 
-export const setCachedData = (key, data) => {
-  const payload = {
-    data,
-    timestamp: Date.now(),
-  };
-  localStorage.setItem(key, JSON.stringify(payload));
+export const setCachedData = (key, data, item) => {
+  const existing = localStorage.getItem(key);
+
+  if (existing) {
+    updateLocalStorageProperty(key, "data", data);
+    updateLocalStorageProperty(key, "timestamp", Date.now());
+    updateLocalStorageProperty(key, "detailedDevice", item);
+  } else {
+    const payload = {
+      data,
+      timestamp: Date.now(),
+      detailedDevice: item,
+    };
+    localStorage.setItem(key, JSON.stringify(payload));
+  }
 };

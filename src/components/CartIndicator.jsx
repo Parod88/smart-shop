@@ -2,9 +2,14 @@ import { useContext } from "preact/hooks";
 import { CartContext } from "../context/CartContext";
 
 const CartIndicator = () => {
-  const { cart } = useContext(CartContext);
+  const { cartCount } = useContext(CartContext);
 
-  return <div className="text-white">Cart: {cart.length} items</div>;
+  return (
+    <div className="text-blue-500 text-2xl rounded-xl ml-2 p-1 bg-amber-50">
+      {cartCount}
+      <span> 🛒</span>
+    </div>
+  );
 };
 
 export default CartIndicator;
