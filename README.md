@@ -52,6 +52,8 @@ src/
 ├── services/          → Comunicación con la API
 ├── utils/             → Utilidades como caché
 
+Para el control de versiones, se han implementado la rama "main" para producción, la rama "development" para desarrollo y de esta última se han ido sacando ramas "feat/nueva-feature" para ir añadiendo features al proyecto.
+
 📋 Notas
 Este proyecto utiliza almacenamiento en localStorage para gestionar el carrito y cachear datos de productos.
 
