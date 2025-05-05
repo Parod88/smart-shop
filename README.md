@@ -4,7 +4,7 @@ Este proyecto es una aplicación desarrollada con **Vite** y **Preact**, que mue
 
 ## 🚀 Requisitos
 
-- [Node.js v22.x](https://nodejs.org/) (es posible que no funcione correctamente con versiones anteriores)
+- [Node.js v18.x](https://nodejs.org/) (es posible que no funcione correctamente con versiones anteriores)
 - [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
 
 ## 🛠 Instalación
@@ -16,6 +16,8 @@ Este proyecto es una aplicación desarrollada con **Vite** y **Preact**, que mue
 git clone https://github.com/Parod88/smart-shop.git  (https)
 git clone git@github.com:Parod88/smart-shop.git       (ssh)
 
+La solución está desplegada también usando cloudflare pages en:
+https://7857a61e.smart-shop.pages.dev/
 
 - Instala las dependencias:
 cd smart-shop
