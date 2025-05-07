@@ -1,6 +1,6 @@
 # 📱 Phone Catalog App
 
-Este proyecto es una aplicación desarrollada con **Vite** y **Preact**, que muestra un catálogo de teléfonos, permite ver detalles y añadir productos al carrito con almacenamiento local.
+Este proyecto es una aplicación desarrollada con **Vite** y **react**, que muestra un catálogo de teléfonos, permite ver detalles y añadir productos al carrito con almacenamiento local.
 
 ---
 

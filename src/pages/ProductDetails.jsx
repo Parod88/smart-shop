@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "react";
 import { getOneItem } from "../services/productsService";
 import DetailImage from "../components/DetailImage";
 import ProductActions from "../components/ProductActions";

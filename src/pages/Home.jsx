@@ -1,5 +1,5 @@
 import ProductItem from "../components/ProductItem";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "react";
 import { getAllItems } from "../services/productsService";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,6 @@ const Home = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
   useEffect(() => {
     const loadData = async () => {
       const data = await getAllItems();
