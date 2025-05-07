@@ -1,4 +1,4 @@
-import { useContext, useState } from "preact/hooks";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { addToCart } from "../services/productsService";
 
