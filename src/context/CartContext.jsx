@@ -1,5 +1,5 @@
-import { createContext } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { createContext } from "react";
+import { useEffect, useState } from "react";
 
 export const CartContext = createContext();
 

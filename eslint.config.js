@@ -1,34 +1,51 @@
 import js from "@eslint/js";
 import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
+import reactPlugin from "eslint-plugin-react";
 
-export default defineConfig([
+export default [
+  js.configs.recommended,
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
+    ignores: ["**/node_modules/**", "dist"],
   },
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    languageOptions: { globals: globals.browser },
+    files: ["**/*.{js,jsx}"],
+    plugins: {
+      react: reactPlugin,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2022,
+        sourceType: "module",
+      },
+    },
+    rules: {
+      "no-console": [
+        "warn",
+        {
+          allow: ["error"],
+        },
+      ],
+      "react/no-unknown-property": [
+        "error",
+        {
+          ignore: ["class", "for"],
+        },
+      ],
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+    },
   },
-  pluginReact.configs.flat.recommended,
-  {
-    ignores: [
-      "node_modules",
-      "scripts/*",
-      "config/*",
-      "pnpm-lock.yaml",
-      "pnpm-workspace.yaml",
-      ".DS_Store",
-      "package.json",
-      "tsconfig.json",
-      "**/*.md",
-      "build",
-      ".eslintrc.cjs",
-      "eslint.config.js",
-      "**/.*",
-    ],
-  },
-]);
+];

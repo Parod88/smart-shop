@@ -12,9 +12,7 @@ const ProductItem = ({ product, onClick }) => {
       <section className="text-blue-500 pl-2">
         <h3 className="mt-2 text-lg font-bold">{product.brand}</h3>
         <span className="text-ellipsis">{product.model}</span>
-        <p>{`${
-          product.price ? product.price + "€" : "Precio no disponible"
-        }`}</p>
+        <p>{product.price ? `${product.price}€` : "Precio no disponible"}</p>
       </section>
     </div>
   );
