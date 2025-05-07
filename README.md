@@ -53,9 +53,12 @@ Los archivos estáticos se generarán en la carpeta `dist/`.
 
 Ejecuta ESLint sobre todos los archivos `.js` y `.jsx`.
 
-### Test (no configurado actualmente)
+### Test
 
 `npm run test`
+
+Ejecuta los tests con vitest.
+He añadido tests de integración de las páginas principales (Home y Detail) y además tests unitarios de 2 componentes: ProductItem.jsx (cada item de la lista principal del Home.jsx) y el DetailDescription.jsx (que contiene los datos extendidos de un único item).
 
 ## 📁 Estructura del proyecto (resumen)
 
